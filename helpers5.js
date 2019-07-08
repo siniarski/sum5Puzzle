@@ -9,32 +9,37 @@ module.exports = {
     d: 0,
     e: 0
   }),
-  getNextObject: (obj, min = 0, max = 10) =>
-    Object.entries(obj).reduce(
-      (a, [key, value], index) => {
-        if (index === 0 || a.carry === true) {
-          let newValue = value + 1;
-          let carry = false;
-          if (newValue > max) {
-            newValue = min;
-            carry = true;
-          }
-          return {
-            newObj: {
-              ...a.newObj,
-              [key]: newValue
-            },
-            carry
-          };
+  getNextObject: (obj, min = 0, max = 10) => {
+    const step = (a, [key, value], carryOverride = false) => {
+      if (carryOverride || a.carry === true) {
+        let newValue = value + 1;
+        let carry = false;
+        if (newValue > max) {
+          newValue = min;
+          carry = true;
         }
         return {
           newObj: {
             ...a.newObj,
-            [key]: value
+            [key]: newValue
           },
-          carry: false
+          carry
         };
-      },
-      { newObj: {}, carry: false }
-    )
+      }
+      return {
+        newObj: {
+          ...a.newObj,
+          [key]: value
+        },
+        carry: false
+      };
+    };
+
+    const stepA = step({ newObj: {}, carry: false }, ["a", obj.a], true);
+    const stepB = step(stepA, ["b", obj.b]);
+    const stepC = step(stepB, ["c", obj.c]);
+    const stepD = step(stepC, ["d", obj.d]);
+    const stepE = step(stepD, ["e", obj.e]);
+    return stepE;
+  }
 };
