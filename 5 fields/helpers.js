@@ -2,13 +2,6 @@ module.exports = {
   getSum: ({ a, b, c, d, e }) => a + b + c + d + e,
   outputResult: ({ a, b, c, d, e }) =>
     `a = ${a}, b = ${b}, c = ${c}, d = ${d}, e = ${e}`,
-  getInitialObject: () => ({
-    a: 0,
-    b: 0,
-    c: 0,
-    d: 0,
-    e: 0
-  }),
   getNextObject: (obj, min = 0, max = 10) => {
     const step = (a, [key, value], carryOverride = false) => {
       if (carryOverride || a.carry === true) {
