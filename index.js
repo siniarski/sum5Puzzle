@@ -3,7 +3,7 @@ const {
   getNextObject,
   getSum,
   outputResult
-} = require("./helpers");
+} = require("./helpers5");
 
 const outputSums = (fields, min, max, total) => {
   let obj = getInitialObject(fields);
