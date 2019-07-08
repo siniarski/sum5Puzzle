@@ -5,19 +5,19 @@ const {
   outputResult
 } = require("./helpers");
 
-const outputSums = (fields, min, max, total) => {
+const outputSums = (fields, min, max, targetSum) => {
   let obj = getInitialObject(fields);
   while (true) {
-    if (getSum(obj) === total) {
+    if (getSum(obj) === targetSum) {
       console.log(outputResult(obj));
     }
 
     const { newObj, carry } = getNextObject(obj, min, max);
-    obj = { ...newObj };
 
     if (carry) {
       break;
     }
+    obj = newObj;
   }
 };
 

@@ -1,6 +1,6 @@
 const { getNextObject, getSum, outputResult } = require("./helpers");
 
-const outputSums = (min, max, sum) => {
+const outputSums = (min, max, targetSum) => {
   let obj = {
     a: 0,
     b: 0,
@@ -10,17 +10,17 @@ const outputSums = (min, max, sum) => {
   };
 
   while (true) {
-    if (getSum(obj) === sum) {
+    if (getSum(obj) === targetSum) {
       console.log(outputResult(obj));
     }
 
     const { newObj, carry } = getNextObject(obj, min, max);
-    obj = { ...newObj };
 
     if (carry) {
       break;
     }
+    obj = newObj;
   }
 };
 
-outputSums(0, 1000, 1000);
+outputSums(0, 10, 10);
