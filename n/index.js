@@ -5,7 +5,12 @@ const {
   outputResult
 } = require("./helpers");
 
-const outputSums = (fields, min, max, targetSum) => {
+const outputSums = (
+  fields = ["a", "b", "c", "d", "e"],
+  min = 0,
+  max = 1000,
+  targetSum = 1000
+) => {
   let obj = getInitialObject(fields);
   while (true) {
     if (getSum(obj) === targetSum) {
@@ -21,4 +26,4 @@ const outputSums = (fields, min, max, targetSum) => {
   }
 };
 
-outputSums(["a", "b", "c", "d", "e"], 0, 1000, 1000);
+outputSums();

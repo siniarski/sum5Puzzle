@@ -1,6 +1,6 @@
 const { getNextObject, getSum, outputResult } = require("./helpers");
 
-const outputSums = (min, max, targetSum) => {
+const outputSums = (min = 0, max = 1000, targetSum = 1000) => {
   let obj = {
     a: 0,
     b: 0,
@@ -23,4 +23,4 @@ const outputSums = (min, max, targetSum) => {
   }
 };
 
-outputSums(0, 1000, 1000);
+outputSums();
