@@ -23,4 +23,4 @@ const outputSums = (min, max, targetSum) => {
   }
 };
 
-outputSums(0, 10, 10);
+outputSums(0, 1000, 1000);
