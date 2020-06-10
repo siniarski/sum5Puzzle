@@ -14,17 +14,17 @@ module.exports = {
         return {
           newObj: {
             ...a.newObj,
-            [key]: newValue
+            [key]: newValue,
           },
-          carry
+          carry,
         };
       }
       return {
         newObj: {
           ...a.newObj,
-          [key]: value
+          [key]: value,
         },
-        carry: false
+        carry: false,
       };
     };
 
@@ -34,5 +34,5 @@ module.exports = {
     const stepD = step(stepC, ["d", obj.d]);
     const stepE = step(stepD, ["e", obj.e]);
     return stepE;
-  }
+  },
 };

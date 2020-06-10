@@ -1,12 +1,12 @@
 module.exports = {
-  getSum: obj => Object.values(obj).reduce((a, value) => a + value, 0),
-  outputResult: obj =>
+  getSum: (obj) => Object.values(obj).reduce((a, value) => a + value, 0),
+  outputResult: (obj) =>
     Object.entries(obj).reduce(
       (a, [key, value], index) =>
         `${a}${index !== 0 ? ", " : ""}${key} = ${value}`,
       ""
     ),
-  getInitialObject: fields => fields.reduce((a, c) => ({ ...a, [c]: 0 }), {}),
+  getInitialObject: (fields) => fields.reduce((a, c) => ({ ...a, [c]: 0 }), {}),
   getNextObject: (obj, min = 0, max = 10) =>
     Object.entries(obj).reduce(
       (a, [key, value], index) => {
@@ -20,19 +20,19 @@ module.exports = {
           return {
             newObj: {
               ...a.newObj,
-              [key]: newValue
+              [key]: newValue,
             },
-            carry
+            carry,
           };
         }
         return {
           newObj: {
             ...a.newObj,
-            [key]: value
+            [key]: value,
           },
-          carry: false
+          carry: false,
         };
       },
       { newObj: {}, carry: false }
-    )
+    ),
 };

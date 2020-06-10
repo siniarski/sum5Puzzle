@@ -6,7 +6,7 @@ const outputSums = (min = 0, max = 1000, targetSum = 1000) => {
     b: 0,
     c: 0,
     d: 0,
-    e: 0
+    e: 0,
   };
 
   while (true) {

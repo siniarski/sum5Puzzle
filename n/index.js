@@ -2,7 +2,7 @@ const {
   getInitialObject,
   getNextObject,
   getSum,
-  outputResult
+  outputResult,
 } = require("./helpers");
 
 const outputSums = (
